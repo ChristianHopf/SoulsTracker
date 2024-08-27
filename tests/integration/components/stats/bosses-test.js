@@ -12,15 +12,6 @@ module('Integration | Component | stats/bosses', function (hooks) {
 
     await render(hbs`<Stats::Bosses />`);
 
-    assert.dom().hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <Stats::Bosses>
-        template block text
-      </Stats::Bosses>
-    `);
-
-    assert.dom().hasText('template block text');
+    assert.dom().hasText('Bosses');
   });
 });

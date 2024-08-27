@@ -12,15 +12,9 @@ module('Integration | Component | header', function (hooks) {
 
     await render(hbs`<Header />`);
 
-    assert.dom().hasText('');
+    assert.dom().containsText('SoulsTracker');
 
-    // Template block usage:
-    await render(hbs`
-      <Header>
-        template block text
-      </Header>
-    `);
-
-    assert.dom().hasText('template block text');
+    assert.dom('button').exists();
+    assert.dom('button').hasText('Dark');
   });
 });

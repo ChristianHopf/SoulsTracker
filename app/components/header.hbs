@@ -1,6 +1,14 @@
-<div class="w-full py-3 bg-[#1A2325]">
+<div class="w-full py-3 bg-header-dark">
   <header class="flex justify-between max-w-7xl mx-auto">
-    <h1 class="text-3xl font-semibold text-accent-dark">SoulsTracker</h1>
-    <button type="button" class="text-primary-dark">Dark</button>
+    <LinkTo @route="index">
+      <h1 class="text-3xl font-semibold text-accent-dark">SoulsTracker</h1>
+    </LinkTo>
+    <button
+      {{on "click" this.changeMode}}
+      type="button"
+      class="text-primary-dark"
+    >
+      Dark
+    </button>
   </header>
 </div>

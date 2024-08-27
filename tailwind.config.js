@@ -6,11 +6,11 @@ export default {
   theme: {
     extend: {},
     colors: {
-      'header-dark': colors.slate[800],
-      'bg-dark': colors.gray[500],
-      'primary-dark': colors.gray[100],
-      'secondary-dark': colors.gray[300],
-      'accent-dark': colors.amber[300],
+      'header-dark': '#1A2325',
+      'bg-dark': '#494E54',
+      'primary-dark': '#E0E0E0',
+      'secondary-dark': '#B0B0B0',
+      'accent-dark': '#F2D16C',
       'header-light': colors.white,
       'bg-light': colors.gray[200],
       'primary-light': colors.black,

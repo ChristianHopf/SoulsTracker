@@ -6,4 +6,10 @@ export default class Router extends EmberRouter {
   rootURL = config.rootURL;
 }
 
-Router.map(function () {});
+Router.map(function () {
+  this.route('darksouls', { path: '/dark-souls-remastered' });
+  this.route('darksouls2', { path: '/dark-souls-2' });
+  this.route('darksouls3', { path: '/dark-souls-3' });
+  // this.route('bloodborne', { path: '/bloodborne' });
+  this.route('eldenring', { path: '/elden-ring' });
+});

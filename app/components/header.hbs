@@ -8,7 +8,11 @@
       type="button"
       class="text-primary-dark"
     >
-      Dark
+      {{#if this.darkMode}}
+        Dark
+      {{else}}
+        Light
+      {{/if}}
     </button>
   </header>
 </div>

@@ -7,6 +7,10 @@ import { tracked } from '@glimmer/tracking';
 export default class Header extends Component {
   @service declare style: StyleService;
 
+  get darkMode() {
+    return this.style.mode === 'dark';
+  }
+
   @action
   changeMode() {
     this.style.toggleMode();

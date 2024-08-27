@@ -12,6 +12,9 @@ module('Integration | Component | stats/bosses', function (hooks) {
 
     await render(hbs`<Stats::Bosses />`);
 
-    assert.dom().hasText('Bosses');
+    assert.dom('h1').hasText('Bosses');
+
+    assert.dom('[data-test-next-boss]').containsText('Next Boss:');
+    assert.dom('[data-test-recent-boss]').containsText('Recent Boss:');
   });
 });

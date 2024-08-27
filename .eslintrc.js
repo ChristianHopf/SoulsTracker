@@ -24,7 +24,14 @@ module.exports = {
         'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',
       ],
-      rules: {},
+      // For now, ignore no explicit any, no empty object type.
+      // Might change later if I edit:
+      // - types/ember-data/types/registries/model.d.ts
+      // - types/souls-tracker/index.d.ts
+      rules: {
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/no-empty-object-type': 'off',
+      },
     },
     // node files
     {

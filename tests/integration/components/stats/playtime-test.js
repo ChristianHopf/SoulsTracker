@@ -12,6 +12,9 @@ module('Integration | Component | stats/playtime', function (hooks) {
 
     await render(hbs`<Stats::Playtime />`);
 
+    // Will later refactor tests to test proper behavior when fetching data
     assert.dom('h1').hasText('Playtime');
+    assert.dom('[data-test-lifetime]').containsText('hours played (lifetime)');
+    assert.dom('[data-test-2weeks]').containsText('hours played (last two weeks)');
   });
 });

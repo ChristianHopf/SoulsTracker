@@ -15,6 +15,8 @@ module('Integration | Component | stats/playtime', function (hooks) {
     // Will later refactor tests to test proper behavior when fetching data
     assert.dom('h1').hasText('Playtime');
     assert.dom('[data-test-lifetime]').containsText('hours played (lifetime)');
-    assert.dom('[data-test-2weeks]').containsText('hours played (last two weeks)');
+    assert
+      .dom('[data-test-2weeks]')
+      .containsText('hours played (last two weeks)');
   });
 });

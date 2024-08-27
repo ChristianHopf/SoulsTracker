@@ -12,15 +12,6 @@ module('Integration | Component | stats/playtime', function (hooks) {
 
     await render(hbs`<Stats::Playtime />`);
 
-    assert.dom().hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <Stats::Playtime>
-        template block text
-      </Stats::Playtime>
-    `);
-
-    assert.dom().hasText('template block text');
+    assert.dom('h1').hasText('Playtime');
   });
 });

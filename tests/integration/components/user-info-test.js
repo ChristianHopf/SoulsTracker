@@ -12,15 +12,6 @@ module('Integration | Component | user-info', function (hooks) {
 
     await render(hbs`<UserInfo />`);
 
-    assert.dom().hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <UserInfo>
-        template block text
-      </UserInfo>
-    `);
-
-    assert.dom().hasText('template block text');
+    assert.dom('h1').exists();
   });
 });

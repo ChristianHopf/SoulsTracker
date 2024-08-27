@@ -12,15 +12,6 @@ module('Integration | Component | stats/achievements', function (hooks) {
 
     await render(hbs`<Stats::Achievements />`);
 
-    assert.dom().hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <Stats::Achievements>
-        template block text
-      </Stats::Achievements>
-    `);
-
-    assert.dom().hasText('template block text');
+    assert.dom('h1').hasText('Achievements');
   });
 });

@@ -33,6 +33,7 @@
     "@ember/test-helpers": "^3.3.1",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
+    "autoprefixer": "^10.4.20",
     "broccoli-asset-rev": "^3.0.0",
     "concurrently": "^8.2.2",
     "ember-auto-import": "^2.7.4",
@@ -62,19 +63,27 @@
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-qunit": "^8.1.1",
     "loader.js": "^4.7.0",
+    "postcss": "^8.4.41",
+    "postcss-loader": "^8.1.1",
     "prettier": "^3.3.3",
     "qunit": "^2.22.0",
     "qunit-dom": "^2.0.0",
     "stylelint": "^15.11.0",
     "stylelint-config-standard": "^34.0.0",
     "stylelint-prettier": "^4.1.0",
+    "tailwindcss": "^3.4.10",
     "tracked-built-ins": "^3.3.0",
-    "webpack": "^5.93.0"
+    "webpack": "^5.94.0"
   },
   "engines": {
     "node": ">= 18"
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "@embroider/compat": "^3.6.0",
+    "@embroider/core": "^3.4.14",
+    "@embroider/webpack": "^4.0.4"
   }
 }

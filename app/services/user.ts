@@ -1,7 +1,5 @@
 import Service from '@ember/service';
 import { tracked } from '@glimmer/tracking';
-import { A } from '@ember/array';
-import type NativeArray from '@ember/array/-private/native-array';
 
 export interface User {
   steamid: string; // 76561198099631791
@@ -14,14 +12,10 @@ export interface Game {
 }
 
 export default class UserService extends Service {
-  @tracked userInfo: User | null = {
-    steamid: '',
-    personaname: '',
-    avatarmedium: '',
-  };
+  @tracked userInfo: User | null = null;
 
-  // An A is a NativeArray, which is autotracked
-  ownedGames: NativeArray<Game> | null = A([]);
+  // A simple tracked array is fine, since the individual items within the array don't need to be tracked
+  @tracked ownedGames: Game[] | null = null;
 
   async fetchUserAndGames(steamid: string) {
     await this.fetchUser(steamid);
@@ -70,7 +64,7 @@ export default class UserService extends Service {
 
       // Success (the user owns at least one of the supported games)
       if (data.length > 0) {
-        this.ownedGames = A(data);
+        this.ownedGames = data;
         return data;
       }
 

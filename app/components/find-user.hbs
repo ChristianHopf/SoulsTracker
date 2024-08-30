@@ -7,9 +7,18 @@
       class="text-header-dark bg-primary-dark rounded-md focus:outline-none border border-header-dark focus:border-accent-dark focus:ring-1 focus:ring-header-dark px-2 py-1"
     />
   </label>
-  <button
-    type="button"
-    {{on "click" this.fetchUserAndGames}}
-    class="bg-header-dark text-primary-dark border border-header-dark hover:text-accent-dark hover:border-accent-dark transition-colors duration-200 rounded-md px-4 py-2"
-  >Find User</button>
+  {{#if this.steamid}}
+    <LinkTo @route="user" @model={{this.steamid}}>
+      <button
+        type="button"
+        class="bg-header-dark text-primary-dark border border-header-dark hover:text-accent-dark hover:border-accent-dark transition-colors duration-200 rounded-md px-4 py-2"
+      >Find User</button>
+    </LinkTo>
+  {{else}}
+    <button
+      type="button"
+      disabled
+      class="bg-secondary-dark text-header-dark border border-header-dark rounded-md px-4 py-2"
+    >Find User</button>
+  {{/if}}
 </div>

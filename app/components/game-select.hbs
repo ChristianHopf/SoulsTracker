@@ -1,17 +1,26 @@
-{{#if this.user.ownedGames}}
-  <div data-test-game-select class="flex items-center gap-4">
-    <label class="text-2xl text-primary-dark font-semibold">
-      <span>Select Game</span>
-      <select
-        name="ownedGames"
-        id="ownedGames"
-        class="text-header-dark bg-primary-dark rounded-md focus:outline-none border border-header-dark focus:border-accent-dark focus:ring-1 focus:ring-header-dark px-2 py-1"
-      >
-        {{!use #each to render an <option> for each game}}
+{{!-- {{#if this.user.loading}}
+<h1>Loading...</h1> --}}
+<div data-test-game-select class="flex items-center gap-4">
+  <label class="text-2xl text-primary-dark font-semibold">
+    <span>Select Game</span>
+    <select
+      name="ownedGames"
+      id="ownedGames"
+      class="text-header-dark bg-primary-dark rounded-md focus:outline-none border border-header-dark focus:border-accent-dark focus:ring-1 focus:ring-header-dark px-2 py-1"
+      {{on "change" this.handleChangeGame}}
+    >
+      <option value="ignore">Select</option>
+      {{!use #each to render an <option> for each game}}
+      {{#if this.user.ownedGames}}
         {{#each this.user.ownedGames as |game|}}
-          <option value={{game.appid}}>{{game.name}}</option>
+          <option value={{game.id}}>
+            {{game.name}}
+          </option>
         {{/each}}
-      </select>
-    </label>
-  </div>
-{{/if}}
+      {{/if}}
+    </select>
+  </label>
+</div>
+{{!-- {{else if this.user.userInfo}}
+  <h1 class="text-5xl text-primary-dark">This user does not own any of the
+    supported games.</h1> --}}

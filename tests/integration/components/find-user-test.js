@@ -12,15 +12,9 @@ module('Integration | Component | find-user', function (hooks) {
 
     await render(hbs`<FindUser />`);
 
-    assert.dom().hasText('');
+    assert.dom('span').containsText('SteamID');
 
-    // Template block usage:
-    await render(hbs`
-      <FindUser>
-        template block text
-      </FindUser>
-    `);
-
-    assert.dom().hasText('template block text');
+    assert.dom('button').exists();
+    assert.dom('button').hasText('Find User');
   });
 });

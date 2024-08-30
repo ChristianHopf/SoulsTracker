@@ -12,15 +12,13 @@ module('Integration | Component | stats/info', function (hooks) {
 
     await render(hbs`<Stats::Info />`);
 
-    assert.dom().hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <Stats::Info>
-        template block text
-      </Stats::Info>
-    `);
-
-    assert.dom().hasText('template block text');
+    assert
+      .dom('h1')
+      .containsText("Enter a user's SteamID to find their profile.");
+    assert
+      .dom('h1')
+      .containsText(
+        "Then, select a game from the Games drop-down to view the user's stats.",
+      );
   });
 });

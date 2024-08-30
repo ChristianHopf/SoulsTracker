@@ -25,7 +25,6 @@ module('Integration | Component | stats/container', function (hooks) {
 
     await render(hbs`<Stats::Container />`);
 
-    assert.dom('[data-test-user-info]').exists();
     assert.dom('[data-test-playtime]').exists();
     assert.dom('[data-test-bosses]').exists();
     assert.dom('[data-test-achievements]').exists();

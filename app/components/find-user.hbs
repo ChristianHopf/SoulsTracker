@@ -1,0 +1,15 @@
+<div data-test-find-user class="flex items-center gap-4">
+  <label class="text-2xl text-primary-dark font-semibold">
+    <span>SteamID</span>
+    <Input
+      @value={{this.steamid}}
+      placeholder="SteamID"
+      class="text-header-dark bg-primary-dark rounded-md focus:outline-none border border-header-dark focus:border-accent-dark focus:ring-1 focus:ring-header-dark px-2 py-1"
+    />
+  </label>
+  <button
+    type="button"
+    {{on "click" this.fetchUserAndGames}}
+    class="bg-header-dark text-primary-dark border border-header-dark hover:text-accent-dark hover:border-accent-dark transition-colors duration-200 rounded-md px-4 py-2"
+  >Find User</button>
+</div>

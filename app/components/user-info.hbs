@@ -1,11 +1,24 @@
-<div data-test-user-info class="flex flex-row gap-4">
-  <img
-    src="https://avatars.akamai.steamstatic.com/3ea5c1a79dbebd35ad9e5e5ca7ca4db8b3107cac_full.jpg"
-    alt="avatar"
-    width="96"
-  />
-  <div class="flex flex-col items-start justify-between">
-    <h1 class="text-5xl text-primary-dark">Username</h1>
-    <button type="button" class="text-xl ml-1.5 text-accent-dark">View profile</button>
+{{#if this.user.userInfo}}
+  <div data-test-user-info class="flex flex-row gap-4">
+    <img
+      src={{this.user.userInfo.avatarmedium}}
+      alt="avatar"
+      width="96"
+      class="border-2 border-accent-dark rounded-md"
+    />
+    <div class="flex flex-col items-start justify-between">
+      <h1
+        class="text-5xl text-primary-dark"
+      >{{this.user.userInfo.personaname}}</h1>
+      <a
+        href="{{concat
+          'https://steamcommunity.com/profiles/'
+          this.user.userInfo.steamid
+        }}"
+        class="text-xl ml-1.5 text-accent-dark"
+        target="_blank"
+        rel="external nofollow noopener noreferrer"
+      >View profile</a>
+    </div>
   </div>
-</div>
+{{/if}}

@@ -41,7 +41,6 @@ export default class UserService extends Service {
       // Success, return a User
       const data = await response.json();
       this.userInfo = data;
-      console.log(data);
       return data;
     } catch (err) {
       // Some other error occurred while fetching or parsing data, set userInfo to null

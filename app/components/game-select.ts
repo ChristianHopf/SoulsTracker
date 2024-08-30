@@ -1,8 +1,6 @@
 import Component from '@glimmer/component';
 import UserService from 'souls-tracker/services/user';
 import { service } from '@ember/service';
-import { TrackedArray } from 'tracked-built-ins';
-import NativeArray, { A } from '@ember/array';
 
 export interface GameSelectSignature {
   // The arguments accepted by the component

@@ -13,10 +13,8 @@
         <option value="ignore">Select</option>
         {{!use #each to render an <option> for each game}}
         {{#each this.user.ownedGames as |game|}}
-
           <option value={{game.id}}>
-            <LinkTo @route="user.stats" @model={{@game}}>{{game.name}}
-            </LinkTo>
+            {{game.name}}
           </option>
         {{/each}}
       </select>

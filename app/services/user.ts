@@ -7,19 +7,23 @@ export interface User {
   avatarmedium: string; // img url
 }
 export interface Game {
-  name: string; // DARK SOULS: REMASTERED
+  id: string; // dark-souls-remastered
+  name: string; // DARK SOULS™: REMASTERED
   appid: string; // 570940
 }
 
 export default class UserService extends Service {
   @tracked userInfo: User | null = null;
-
   // A simple tracked array is fine, since the individual items within the array don't need to be tracked
   @tracked ownedGames: Game[] | null = null;
 
   async fetchUserAndGames(steamid: string) {
+    this.userInfo = null;
+    this.ownedGames = null;
+
     await this.fetchUser(steamid);
     await this.fetchGames(steamid);
+    console.log(this.ownedGames);
   }
 
   async fetchUser(steamid: string): Promise<User | null> {

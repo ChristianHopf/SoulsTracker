@@ -1,14 +1,16 @@
-<div
-  data-test-achievements
-  class="flex flex-col w-full max-w-3xl bg-header-dark rounded-md drop-shadow-md px-4 py-2 gap-4"
->
-  <div class="flex flex-row justify-between items-baseline">
-    <h1 class="text-4xl text-primary-dark">Achievements</h1>
-    <button class="text-xl text-primary-dark px-2" type="button">Sort</button>
+{{#if @achievements}}
+  <div
+    data-test-achievements
+    class="flex flex-col w-full max-w-xl bg-header-dark rounded-md drop-shadow-md px-4 py-2 gap-4"
+  >
+    <div class="flex flex-row justify-between items-baseline">
+      <h1 class="text-4xl text-primary-dark">Achievements</h1>
+      <button class="text-xl text-primary-dark px-2" type="button">Sort</button>
+    </div>
+    <ul class="flex flex-col gap-4">
+      {{#each this.achievements as |achievement|}}
+        <Stats::AchievementItem @achievement={{achievement}} />
+      {{/each}}
+    </ul>
   </div>
-  <ul class="flex flex-col gap-4">
-    {{#each this.achievements as |achievement|}}
-      <Stats::AchievementItem @achievement={{achievement}} />
-    {{/each}}
-  </ul>
-</div>
+{{/if}}

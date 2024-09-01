@@ -8,6 +8,6 @@ export default class Router extends EmberRouter {
 
 Router.map(function () {
   this.route('user', { path: '/:steamid' }, function () {
-    this.route('stats', { path: '/:game' });
+    this.route('stats', { path: '/:gameid' });
   });
 });

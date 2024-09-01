@@ -10,7 +10,7 @@ module('Integration | Component | stats/achievements', function (hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<Stats::Achievements />`);
+    await render(hbs`<Stats::Achievements @achievements="achievements"/>`);
 
     assert.dom('h1').hasText('Achievements');
   });

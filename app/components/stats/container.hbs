@@ -1,7 +1,7 @@
 <div class="flex flex-row gap-4">
   <div class="flex flex-col max-w-2xl w-full gap-4">
-    <Stats::Playtime @playtime={{@stats}} />
-    <Stats::Bosses />
+    <Stats::Playtime @playtime={{@stats.playtime}} />
+    <Stats::Bosses @bosses={{@stats.bosses}} />
   </div>
-  <Stats::Achievements />
+  <Stats::Achievements @achievements={{@stats.achievements}} />
 </div>

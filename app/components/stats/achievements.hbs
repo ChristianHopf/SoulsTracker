@@ -8,7 +8,7 @@
       <button class="text-xl text-primary-dark px-2" type="button">Sort</button>
     </div>
     <ul class="flex flex-col gap-4">
-      {{#each this.achievements as |achievement|}}
+      {{#each @achievements as |achievement|}}
         <Stats::AchievementItem @achievement={{achievement}} />
       {{/each}}
     </ul>

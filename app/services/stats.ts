@@ -24,6 +24,26 @@ export default class StatsService extends Service {
   @tracked bosses: Bosses | null = null;
   @tracked achievements: Achievement[] | null = null;
 
+  async fetchStats(steamid: string, appid: string) {
+    // UserStats route's model hook will call this on page load, so
+    // setting them to null will be redundant. But I might want to be able to
+    // call it again in the future (Refresh Stats button)
+    this.playtime = null;
+    this.bosses = null;
+    this.achievements = null;
+
+    await this.fetchPlaytime(steamid, appid);
+    await this.fetchBosses(steamid, appid);
+    await this.fetchAchievements(steamid, appid);
+    console.log(this.achievements);
+
+    return {
+      playtime: this.playtime,
+      bosses: this.bosses,
+      achievements: this.achievements,
+    };
+  }
+
   async fetchPlaytime(
     steamid: string,
     appid: string,
@@ -42,6 +62,45 @@ export default class StatsService extends Service {
       return responseJson.data;
     } catch (err) {
       console.error('Failed to fetch playtime', err);
+      return null;
+    }
+  }
+
+  async fetchBosses(steamid: string, appid: string): Promise<Bosses | null> {
+    try {
+      const response = await fetch(
+        `http://localhost:8080/api/bosses/${steamid}/${appid}`,
+      );
+      if (!response.ok) {
+        console.error(`Error: status ${response.status}`);
+        return null;
+      }
+      const responseJson = await response.json();
+      this.bosses = responseJson.data;
+      return responseJson.data;
+    } catch (err) {
+      console.error('Failed to fetch bosses', err);
+      return null;
+    }
+  }
+
+  async fetchAchievements(
+    steamid: string,
+    appid: string,
+  ): Promise<Achievement[] | null> {
+    try {
+      const response = await fetch(
+        `http://localhost:8080/api/achievements/${steamid}/${appid}`,
+      );
+      if (!response.ok) {
+        console.error(`Error: status ${response.status}`);
+        return null;
+      }
+      const responseJson = await response.json();
+      this.achievements = responseJson.data.result;
+      return responseJson.data.result;
+    } catch (err) {
+      console.error('Failed to fetch bosses', err);
       return null;
     }
   }

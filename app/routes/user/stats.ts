@@ -14,13 +14,16 @@ export default class UserStatsRoute extends Route {
       (game) => game.id === params.gameid,
     );
     const steamid = this.user.userInfo?.steamid;
+
     if (steamid && selectedGame) {
-      const playtime = await this.stats.fetchPlaytime(
-        steamid,
-        selectedGame?.appid,
-      );
-      console.log(playtime);
-      return playtime;
+      const stats = this.stats.fetchStats(steamid, selectedGame.appid);
+      return stats;
+      // const playtime = await this.stats.fetchPlaytime(
+      //   steamid,
+      //   selectedGame?.appid,
+      // );
+      // console.log(playtime);
+      // return playtime;
     }
     return null;
   }

@@ -2,18 +2,11 @@
 
 module.exports = {
   root: true,
-  parser: '@babel/eslint-parser',
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 'latest',
-    sourceType: 'module',
-    requireConfigFile: false,
-    babelOptions: {
-      plugins: [
-        ['@babel/plugin-proposal-decorators', { decoratorsBeforeExport: true }],
-      ],
-    },
   },
-  plugins: ['ember'],
+  plugins: ['ember', '@typescript-eslint', 'tailwindcss'],
   extends: [
     'eslint:recommended',
     'plugin:ember/recommended',
@@ -24,6 +17,28 @@ module.exports = {
   },
   rules: {},
   overrides: [
+    // ts files
+    {
+      files: ['**/*.ts'],
+      extends: [
+        'plugin:@typescript-eslint/eslint-recommended',
+        'plugin:@typescript-eslint/recommended',
+      ],
+      // For now, ignore no explicit any, no empty object type.
+      // Might change later if I edit:
+      // - types/ember-data/types/registries/model.d.ts
+      // - types/souls-tracker/index.d.ts
+      rules: {
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/no-empty-object-type': 'off',
+        'prettier/prettier': [
+          'error',
+          {
+            endOfLine: 'auto',
+          },
+        ],
+      },
+    },
     // node files
     {
       files: [
@@ -37,10 +52,8 @@ module.exports = {
         './config/**/*.js',
         './lib/*/index.js',
         './server/**/*.js',
+        './postcss.config.js',
       ],
-      parserOptions: {
-        sourceType: 'script',
-      },
       env: {
         browser: false,
         node: true,

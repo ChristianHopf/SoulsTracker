@@ -10,7 +10,7 @@ module('Integration | Component | stats/bosses', function (hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<Stats::Bosses />`);
+    await render(hbs`<Stats::Bosses @bosses="bosses"/>`);
 
     assert.dom('h1').hasText('Bosses');
 

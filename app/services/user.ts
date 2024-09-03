@@ -23,14 +23,14 @@ export default class UserService extends Service {
 
     await this.fetchUser(steamid);
     await this.fetchGames(steamid);
-    console.log(this.ownedGames);
+    // console.log(this.ownedGames);
   }
 
   async fetchUser(steamid: string): Promise<User | null> {
     // Fetch user data
     try {
       const response = await fetch(
-        `http://localhost:8080/api/user-profile/${steamid}`,
+        `https://soulstracker-api-52g9f.ondigitalocean.app/api/user-profile/${steamid}`,
       );
       // Return error status and null if unsuccessful in fetching a user
       if (!response.ok) {
@@ -53,7 +53,7 @@ export default class UserService extends Service {
   async fetchGames(steamid: string): Promise<Game[] | null> {
     try {
       const response = await fetch(
-        `http://localhost:8080/api/owned-games/${steamid}`,
+        `https://soulstracker-api-52g9f.ondigitalocean.app/api/owned-games/${steamid}`,
       );
       // Return error status and null if unsuccessful in fetching the user's owned games
       if (!response.ok) {
@@ -63,7 +63,7 @@ export default class UserService extends Service {
       }
 
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
 
       // Success (the user owns at least one of the supported games)
       if (data.length > 0) {
@@ -80,5 +80,15 @@ export default class UserService extends Service {
       this.ownedGames = null;
       return null;
     }
+  }
+}
+
+// Don't remove this declaration: this is what enables TypeScript to resolve
+// this service using `Owner.lookup('service:stats')`, as well
+// as to check when you pass the service name as an argument to the decorator,
+// like `@service('stats') declare altName: StatsService;`.
+declare module '@ember/service' {
+  interface Registry {
+    user: UserService;
   }
 }

@@ -7,7 +7,7 @@ export default class UserRoute extends Route {
 
   async model(params: { steamid: string }) {
     await this.user.fetchUserAndGames(params.steamid);
-    console.log(this.user.userInfo);
+    // console.log(this.user.userInfo);
     return this.user.userInfo;
   }
 }

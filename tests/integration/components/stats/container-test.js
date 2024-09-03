@@ -31,13 +31,13 @@ module('Integration | Component | stats/container', function (hooks) {
           {
             name: 'Enkindle',
             description: 'Light bonfire flame.',
-            unlocktime: 1723589024,
+            unlocktime: 'Tue Aug 13 2024',
             icon: 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/570940/b3e4ca8626661bf2a67b7c207dae62088927bba7.jpg',
           },
           {
             name: 'Estus Flask',
             description: 'Acquire Estus Flask.',
-            unlocktime: 1723589520,
+            unlocktime: 'Tue Aug 13 2024',
             icon: 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/570940/1cef9627ae9f7f676d22343778b9b5f52d77c304.jpg',
           },
         ],

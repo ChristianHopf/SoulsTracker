@@ -23,7 +23,7 @@ export default class UserService extends Service {
 
     await this.fetchUser(steamid);
     await this.fetchGames(steamid);
-    console.log(this.ownedGames);
+    // console.log(this.ownedGames);
   }
 
   async fetchUser(steamid: string): Promise<User | null> {
@@ -63,7 +63,7 @@ export default class UserService extends Service {
       }
 
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
 
       // Success (the user owns at least one of the supported games)
       if (data.length > 0) {

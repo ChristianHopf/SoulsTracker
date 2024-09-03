@@ -35,7 +35,7 @@ export default class StatsService extends Service {
     await this.fetchPlaytime(steamid, appid);
     await this.fetchBosses(steamid, appid);
     await this.fetchAchievements(steamid, appid);
-    console.log(this.achievements);
+    // console.log(this.achievements);
 
     return {
       playtime: this.playtime,

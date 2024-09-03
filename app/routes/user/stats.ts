@@ -8,7 +8,7 @@ export default class UserStatsRoute extends Route {
   @service declare stats: StatsService;
 
   async model(params: { gameid: string }) {
-    console.log(params);
+    // console.log(params);
     // use game id to get appid
     const selectedGame = this.user.ownedGames?.find(
       (game) => game.id === params.gameid,

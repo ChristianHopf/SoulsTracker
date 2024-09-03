@@ -30,7 +30,7 @@ export default class UserService extends Service {
     // Fetch user data
     try {
       const response = await fetch(
-        `http://localhost:8080/api/user-profile/${steamid}`,
+        `https://soulstracker-api-52g9f.ondigitalocean.app/api/user-profile/${steamid}`,
       );
       // Return error status and null if unsuccessful in fetching a user
       if (!response.ok) {
@@ -53,7 +53,7 @@ export default class UserService extends Service {
   async fetchGames(steamid: string): Promise<Game[] | null> {
     try {
       const response = await fetch(
-        `http://localhost:8080/api/owned-games/${steamid}`,
+        `https://soulstracker-api-52g9f.ondigitalocean.app/api/owned-games/${steamid}`,
       );
       // Return error status and null if unsuccessful in fetching the user's owned games
       if (!response.ok) {

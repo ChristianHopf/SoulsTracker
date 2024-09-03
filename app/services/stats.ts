@@ -50,7 +50,7 @@ export default class StatsService extends Service {
   ): Promise<Playtime | null> {
     try {
       const response = await fetch(
-        `http://localhost:8080/api/playtime/${steamid}/${appid}`,
+        `https://soulstracker-api-52g9f.ondigitalocean.app/api/playtime/${steamid}/${appid}`,
       );
       if (!response.ok) {
         console.error(`Error: status ${response.status}`);
@@ -69,7 +69,7 @@ export default class StatsService extends Service {
   async fetchBosses(steamid: string, appid: string): Promise<Bosses | null> {
     try {
       const response = await fetch(
-        `http://localhost:8080/api/bosses/${steamid}/${appid}`,
+        `https://soulstracker-api-52g9f.ondigitalocean.app/api/bosses/${steamid}/${appid}`,
       );
       if (!response.ok) {
         console.error(`Error: status ${response.status}`);
@@ -90,7 +90,7 @@ export default class StatsService extends Service {
   ): Promise<Achievement[] | null> {
     try {
       const response = await fetch(
-        `http://localhost:8080/api/achievements/${steamid}/${appid}`,
+        `https://soulstracker-api-52g9f.ondigitalocean.app/api/achievements/${steamid}/${appid}`,
       );
       if (!response.ok) {
         console.error(`Error: status ${response.status}`);

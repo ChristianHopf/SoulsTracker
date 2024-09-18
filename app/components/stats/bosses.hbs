@@ -5,13 +5,15 @@
   >
     <h1 class="text-4xl text-primary-dark">Bosses</h1>
     <div class="flex flex-col mb-8 gap-2">
-      <div class="flex flex-row">
-        <p data-test-next-boss class="text-3xl text-secondary-dark">Next Boss:
-          <span
-            class="text-3xl text-accent-dark"
-          >{{@bosses.next_boss}}</span></p>
+      {{#if @bosses.next_boss}}
+        <div class="flex flex-row">
+          <p data-test-next-boss class="text-3xl text-secondary-dark">Next Boss:
+            <span
+              class="text-3xl text-accent-dark"
+            >{{@bosses.next_boss}}</span></p>
 
-      </div>
+        </div>
+      {{/if}}
       <div class="flex flex-row">
         <p data-test-recent-boss class="text-3xl text-secondary-dark">Recent
           Boss:

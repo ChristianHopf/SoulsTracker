@@ -1,4 +1,7 @@
 {{page-title "Stats"}}
-<Stats::Container @stats={{@model}} />
-
+{{#if @model}}
+  <Stats::Container @stats={{@model}} />
+{{else}}
+  <Stats::Unsupported />
+{{/if}}
 {{outlet}}

@@ -1,6 +1,6 @@
 {{!-- {{#if this.user.loading}}
 <h1>Loading...</h1> --}}
-<div data-test-game-select class="flex items-center gap-4">
+<div data-test-game-select class="flex items-start gap-2">
   <label class="text-2xl text-primary-dark font-semibold">
     <span>Select Game</span>
     <select
@@ -20,6 +20,7 @@
       {{/if}}
     </select>
   </label>
+  <TipGames />
 </div>
 {{!-- {{else if this.user.userInfo}}
   <h1 class="text-5xl text-primary-dark">This user does not own any of the

@@ -14,6 +14,7 @@ export default class UserStatsRoute extends Route {
     const selectedGame = this.user.ownedGames?.find(
       (game) => game.id === params.gameid,
     );
+
     // Return null for games with support yet to be implemented
     switch (selectedGame?.appid.toString()) {
       case '570940':
@@ -23,15 +24,10 @@ export default class UserStatsRoute extends Route {
       default:
         return null;
     }
+
     if (steamid && selectedGame) {
       const stats = await this.stats.fetchStats(steamid, selectedGame.appid);
       return stats;
-      // const playtime = await this.stats.fetchPlaytime(
-      //   steamid,
-      //   selectedGame?.appid,
-      // );
-      // console.log(playtime);
-      // return playtime;
     }
     return null;
   }

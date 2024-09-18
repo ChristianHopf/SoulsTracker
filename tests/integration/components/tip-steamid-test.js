@@ -12,15 +12,6 @@ module('Integration | Component | tip-steamid', function (hooks) {
 
     await render(hbs`<TipSteamid />`);
 
-    assert.dom().hasText('');
-
-    // Template block usage:
-    await render(hbs`
-      <TipSteamid>
-        template block text
-      </TipSteamid>
-    `);
-
-    assert.dom().hasText('template block text');
+    assert.dom().containsText('SteamID');
   });
 });

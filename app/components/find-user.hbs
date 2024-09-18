@@ -1,4 +1,4 @@
-<div data-test-find-user class="flex items-center gap-4">
+<div data-test-find-user class="flex items-start gap-2">
   <label class="text-2xl text-primary-dark font-semibold">
     <span>SteamID</span>
     <Input
@@ -7,6 +7,7 @@
       class="text-header-dark bg-primary-dark rounded-md focus:outline-none border border-header-dark focus:border-accent-dark focus:ring-1 focus:ring-header-dark px-2 py-1"
     />
   </label>
+  <TipSteamid />
   {{#if this.steamid}}
     <LinkTo @route="user" @model={{this.steamid}}>
       <button

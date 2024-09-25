@@ -1,10 +1,9 @@
 <div data-test-find-user class="flex items-start gap-2">
-  <label class="text-2xl text-primary-dark font-semibold">
-    <span>SteamID</span>
+  <label class="text-2xl w-[20rem] text-primary-dark font-semibold">
     <Input
       @value={{this.steamid}}
       placeholder="SteamID"
-      class="text-header-dark bg-primary-dark rounded-md focus:outline-none border border-header-dark focus:border-accent-dark focus:ring-1 focus:ring-header-dark px-2 py-1"
+      class="text-header-dark bg-primary-dark rounded-md focus:outline-none border border-header-dark focus:border-accent-dark focus:ring-1 focus:ring-header-dark w-full px-2 py-1"
     />
   </label>
   <TipSteamid />
@@ -20,6 +19,8 @@
       type="button"
       disabled
       class="bg-secondary-dark text-header-dark border border-header-dark rounded-md px-4 py-2"
-    >Find User</button>
+    >
+      Find User
+    </button>
   {{/if}}
 </div>

@@ -20,6 +20,6 @@ module('Integration | Component | game-select', function (hooks) {
 
     await render(hbs`<GameSelect />`);
 
-    assert.dom('span').containsText('Select Game');
+    assert.dom('select').containsText('Select game');
   });
 });

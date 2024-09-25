@@ -1,15 +1,12 @@
-{{!-- {{#if this.user.loading}}
-<h1>Loading...</h1> --}}
 <div data-test-game-select class="flex items-start gap-2">
-  <label class="text-2xl text-primary-dark font-semibold">
-    <span>Select Game</span>
+  <label class="text-2xl w-[20rem] text-primary-dark font-semibold">
     <select
       name="ownedGames"
       id="ownedGames"
-      class="text-header-dark bg-primary-dark rounded-md focus:outline-none border border-header-dark focus:border-accent-dark focus:ring-1 focus:ring-header-dark px-2 py-1"
+      class="text-header-dark bg-primary-dark rounded-md focus:outline-none border border-header-dark focus:border-accent-dark focus:ring-1 focus:ring-header-dark w-full px-2 py-1"
       {{on "change" this.handleChangeGame}}
     >
-      <option value="ignore">Select</option>
+      <option value="ignore">Select game</option>
       {{!use #each to render an <option> for each game}}
       {{#if this.user.ownedGames}}
         {{#each this.user.ownedGames as |game|}}
@@ -21,6 +18,13 @@
     </select>
   </label>
   <TipGames />
+  <button
+    type="button"
+    disabled
+    class="bg-secondary-dark text-header-dark border border-header-dark rounded-md px-4 py-2"
+  >
+    Get Stats
+  </button>
 </div>
 {{!-- {{else if this.user.userInfo}}
   <h1 class="text-5xl text-primary-dark">This user does not own any of the

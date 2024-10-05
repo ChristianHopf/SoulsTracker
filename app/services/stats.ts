@@ -19,10 +19,13 @@ export interface Achievement {
   icon: string;
 }
 
+type SortOption = 'date-new' | 'date-old' | 'rarity-most' | 'rarity-least';
+
 export default class StatsService extends Service {
   @tracked playtime: Playtime | null = null;
   @tracked bosses: Bosses | null = null;
   @tracked achievements: Achievement[] | null = null;
+  @tracked achievementSort: SortOption = 'date-new';
 
   async fetchStats(steamid: string, appid: string) {
     // Return null for unsupported games
@@ -114,6 +117,7 @@ export default class StatsService extends Service {
       return null;
     }
   }
+  sortAchievements(type: string) {}
 }
 
 // Don't remove this declaration: this is what enables TypeScript to resolve

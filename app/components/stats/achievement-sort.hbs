@@ -1,0 +1,19 @@
+<div class="relative text-right w-36">
+  <button
+    type="button"
+    class="text-primary-dark text-xl"
+    {{on "click" this.toggleSortDropdown}}
+  >Sort</button>
+  <div
+    class="absolute bg-bg-dark text-left w-full flex flex-col
+      {{if this.hidden 'hidden'}}"
+    role="menu"
+  >
+    <ul>
+      <li>Date (new)</li>
+      <li>Date (old)</li>
+      <li>Rarity (highest)</li>
+      <li>Rarity (lowest)</li>
+    </ul>
+  </div>
+</div>

@@ -17,14 +17,21 @@ export interface Achievement {
   description: string;
   unlocktime: string;
   icon: string;
+  rarity: string;
 }
 
-type SortOption = 'date-new' | 'date-old' | 'rarity-most' | 'rarity-least';
+export type SortOption =
+  | 'date-new'
+  | 'date-old'
+  | 'rarity-most'
+  | 'rarity-least';
 
 export default class StatsService extends Service {
   @tracked playtime: Playtime | null = null;
   @tracked bosses: Bosses | null = null;
   @tracked achievements: Achievement[] | null = null;
+  // Might not really need to hold this as a tracked property, only using it to perform
+  // achievement sorting right now
   @tracked achievementSort: SortOption = 'date-new';
 
   async fetchStats(steamid: string, appid: string) {
@@ -108,8 +115,36 @@ export default class StatsService extends Service {
     }
   }
 
-  sortAchievements(type: SortOption) {
-    this.achievementSort = type;
+  sortAchievements(sort: SortOption) {
+    this.achievementSort = sort;
+    // sort achievements
+    if (this.achievements) {
+      switch (sort) {
+        case 'date-new':
+          // sort: < 0 if a < b, 0 if a == b, > 0 if a > b
+          this.achievements = this.achievements?.sort((a, b) => {
+            return parseInt(b.unlocktime) - parseInt(a.unlocktime);
+          });
+          break;
+        case 'date-old':
+          this.achievements = this.achievements?.sort((a, b) => {
+            return parseInt(a.unlocktime) - parseInt(b.unlocktime);
+          });
+          break;
+        case 'rarity-most':
+          this.achievements = this.achievements?.sort((a, b) => {
+            return parseInt(a.rarity) - parseInt(b.rarity);
+          });
+          break;
+        case 'rarity-least':
+          this.achievements = this.achievements?.sort((a, b) => {
+            return parseInt(b.rarity) - parseInt(a.rarity);
+          });
+          break;
+        default:
+          break;
+      }
+    }
   }
 }
 

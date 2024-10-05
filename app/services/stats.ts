@@ -28,16 +28,6 @@ export default class StatsService extends Service {
   @tracked achievementSort: SortOption = 'date-new';
 
   async fetchStats(steamid: string, appid: string) {
-    // Return null for unsupported games
-    // switch (appid) {
-    //   case '570940':
-    //     break;
-    //   case '1245620':
-    //     break;
-    //   default:
-    //     return null;
-    // }
-
     // UserStats route's model hook will call this on page load, so
     // setting them to null will be redundant. But I might want to be able to
     // call it again in the future (Refresh Stats button)
@@ -117,7 +107,10 @@ export default class StatsService extends Service {
       return null;
     }
   }
-  sortAchievements(type: string) {}
+
+  sortAchievements(type: SortOption) {
+    this.achievementSort = type;
+  }
 }
 
 // Don't remove this declaration: this is what enables TypeScript to resolve

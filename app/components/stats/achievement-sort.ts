@@ -12,7 +12,6 @@ export default class StatsAchievementSort extends Component {
   @action
   toggleSortDropdown() {
     this.hidden = !this.hidden;
-    console.log(this.hidden);
   }
 
   @action

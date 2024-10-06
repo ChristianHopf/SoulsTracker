@@ -10,8 +10,9 @@ module('Integration | Component | stats/achievement-item', function (hooks) {
       achievement: {
         name: 'Enkindle',
         description: 'Light bonfire flame.',
-        unlocktime: 'Tue Aug 13 2024',
+        unlocktime: '1625501575',
         icon: 'https://steamcdn-a.akamaihd.net/steamcommunity/public/images/apps/570940/b3e4ca8626661bf2a67b7c207dae62088927bba7.jpg',
+        rarity: '96.6',
       },
     });
   });
@@ -33,6 +34,6 @@ module('Integration | Component | stats/achievement-item', function (hooks) {
       );
     assert.dom('h1').hasText('Enkindle');
     assert.dom('[data-test-description]').hasText('Light bonfire flame.');
-    assert.dom('[data-test-date]').hasText('Achieved on: Tue Aug 13 2024');
+    assert.dom('[data-test-date]').hasText('Achieved on: 7/5/2021');
   });
 });

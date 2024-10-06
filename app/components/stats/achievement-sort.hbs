@@ -9,28 +9,34 @@
       {{if this.hidden 'hidden'}}"
     role="menu"
   >
+    {{! look into turning this into something like a radio group, handling
+  active class might be easier }}
     <ul>
       <li>
         <button
           type="button"
+          class={{if this.activeDateNewSort "font-semibold" ""}}
           {{on "click" (fn this.sortAchievements "date-new")}}
         >Date (new)</button>
       </li>
       <li>
         <button
           type="button"
+          class={{if this.activeDateOldSort "font-semibold" ""}}
           {{on "click" (fn this.sortAchievements "date-old")}}
         >Date (old)</button>
       </li>
       <li>
         <button
           type="button"
+          class={{if this.activeRarityMostSort "font-semibold" ""}}
           {{on "click" (fn this.sortAchievements "rarity-most")}}
         >Rarity (most rare)</button>
       </li>
       <li>
         <button
           type="button"
+          class={{if this.activeRarityLeastSort "font-semibold" ""}}
           {{on "click" (fn this.sortAchievements "rarity-least")}}
         >Rarity (least rare)</button>
       </li>

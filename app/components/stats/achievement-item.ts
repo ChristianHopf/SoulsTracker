@@ -1,7 +1,11 @@
 import Component from '@glimmer/component';
-// import type { Achievement } from 'souls-tracker/services/stats';
+import type { Achievement } from 'souls-tracker/services/stats';
 
-export default class StatsAchievementItem extends Component {
+interface ComponentArgs {
+  achievement: Achievement;
+}
+
+export default class StatsAchievementItem extends Component<ComponentArgs> {
   get unlockTimeDateString(): string {
     // Still don't understand this error, but it works
     const unlocktime = parseInt(this.args.achievement.unlocktime);

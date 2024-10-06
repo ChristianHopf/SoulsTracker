@@ -17,24 +17,24 @@ export interface Achievement {
   description: string;
   unlocktime: string;
   icon: string;
+  rarity: string;
 }
+
+export type SortOption =
+  | 'date-new'
+  | 'date-old'
+  | 'rarity-most'
+  | 'rarity-least';
 
 export default class StatsService extends Service {
   @tracked playtime: Playtime | null = null;
   @tracked bosses: Bosses | null = null;
   @tracked achievements: Achievement[] | null = null;
+  // Might not really need to hold this as a tracked property, only using it to perform
+  // achievement sorting right now
+  @tracked achievementSort: SortOption = 'date-new';
 
   async fetchStats(steamid: string, appid: string) {
-    // Return null for unsupported games
-    // switch (appid) {
-    //   case '570940':
-    //     break;
-    //   case '1245620':
-    //     break;
-    //   default:
-    //     return null;
-    // }
-
     // UserStats route's model hook will call this on page load, so
     // setting them to null will be redundant. But I might want to be able to
     // call it again in the future (Refresh Stats button)
@@ -112,6 +112,38 @@ export default class StatsService extends Service {
     } catch (err) {
       console.error('Failed to fetch bosses', err);
       return null;
+    }
+  }
+
+  sortAchievements(sort: SortOption) {
+    this.achievementSort = sort;
+    // sort achievements
+    if (this.achievements) {
+      switch (sort) {
+        case 'date-new':
+          // sort: < 0 if a < b, 0 if a == b, > 0 if a > b
+          this.achievements = this.achievements?.sort((a, b) => {
+            return parseInt(b.unlocktime) - parseInt(a.unlocktime);
+          });
+          break;
+        case 'date-old':
+          this.achievements = this.achievements?.sort((a, b) => {
+            return parseInt(a.unlocktime) - parseInt(b.unlocktime);
+          });
+          break;
+        case 'rarity-most':
+          this.achievements = this.achievements?.sort((a, b) => {
+            return parseInt(a.rarity) - parseInt(b.rarity);
+          });
+          break;
+        case 'rarity-least':
+          this.achievements = this.achievements?.sort((a, b) => {
+            return parseInt(b.rarity) - parseInt(a.rarity);
+          });
+          break;
+        default:
+          break;
+      }
     }
   }
 }

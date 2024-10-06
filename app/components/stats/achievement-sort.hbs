@@ -5,15 +5,35 @@
     {{on "click" this.toggleSortDropdown}}
   >Sort</button>
   <div
-    class="absolute bg-bg-dark text-left w-full flex flex-col
+    class="absolute bg-primary-dark text-left w-full flex flex-col rounded-md px-2 py-1
       {{if this.hidden 'hidden'}}"
     role="menu"
   >
     <ul>
-      <li>Date (new)</li>
-      <li>Date (old)</li>
-      <li>Rarity (highest)</li>
-      <li>Rarity (lowest)</li>
+      <li>
+        <button
+          type="button"
+          {{on "click" (fn this.sortAchievements "date-new")}}
+        >Date (new)</button>
+      </li>
+      <li>
+        <button
+          type="button"
+          {{on "click" (fn this.sortAchievements "date-old")}}
+        >Date (old)</button>
+      </li>
+      <li>
+        <button
+          type="button"
+          {{on "click" (fn this.sortAchievements "rarity-most")}}
+        >Rarity (most rare)</button>
+      </li>
+      <li>
+        <button
+          type="button"
+          {{on "click" (fn this.sortAchievements "rarity-least")}}
+        >Rarity (least rare)</button>
+      </li>
     </ul>
   </div>
 </div>

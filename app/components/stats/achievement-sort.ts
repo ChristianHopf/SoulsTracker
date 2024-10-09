@@ -31,7 +31,7 @@ export default class StatsAchievementSort extends Component {
 
   @action
   sortAchievements(sort: SortOption) {
-    this.hidden = false;
+    this.hidden = true;
     this.stats.sortAchievements(sort);
   }
 }

@@ -1,5 +1,5 @@
-<div data-test-find-user class="flex items-start gap-2">
-  <label class="text-2xl w-[20rem] text-primary-dark font-semibold">
+<div data-test-find-user class="flex items-center md:items-start gap-2">
+  <label class="text-xl md:text-2xl w-48 md:w-[20rem] text-primary-dark">
     <Input
       @value={{this.steamid}}
       placeholder="SteamID"
@@ -11,14 +11,14 @@
     <LinkTo @route="user" @model={{this.steamid}}>
       <button
         type="button"
-        class="bg-header-dark text-primary-dark border border-header-dark hover:text-accent-dark hover:border-accent-dark transition-colors duration-200 rounded-md px-4 py-2"
+        class="bg-header-dark text-primary-dark border border-header-dark hover:text-accent-dark hover:border-accent-dark transition-colors duration-200 rounded-md px-2 md:px-4 py-1 md:py-2"
       >Find User</button>
     </LinkTo>
   {{else}}
     <button
       type="button"
       disabled
-      class="bg-secondary-dark text-header-dark border border-header-dark rounded-md px-4 py-2"
+      class="bg-secondary-dark text-header-dark border border-header-dark rounded-md px-2 md:px-4 py-1 md:py-2"
     >
       Find User
     </button>

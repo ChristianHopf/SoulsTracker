@@ -1,9 +1,9 @@
-<div data-test-game-select class="flex items-start gap-2">
-  <label class="text-2xl w-[20rem] text-primary-dark font-semibold">
+<div data-test-game-select class="flex items-center md:items-start gap-2">
+  <label class="text-xl md:text-2xl w-48 md:w-[20rem] text-primary-dark">
     <select
       name="ownedGames"
       id="ownedGames"
-      class="text-header-dark bg-primary-dark rounded-md focus:outline-none border border-header-dark focus:border-accent-dark focus:ring-1 focus:ring-header-dark w-full px-2 py-1"
+      class="text-header-dark bg-primary-dark rounded-md focus:outline-none border border-header-dark focus:border-accent-dark focus:ring-1 focus:ring-header-dark w-full px-1 py-1"
       {{on "change" this.handleChangeGame}}
     >
       <option value="ignore">Select game</option>
@@ -21,7 +21,7 @@
   <button
     type="button"
     disabled
-    class="bg-secondary-dark text-header-dark border border-header-dark rounded-md px-4 py-2"
+    class="bg-secondary-dark text-header-dark border border-header-dark rounded-md px-2 md:px-4 py-1 md:py-2"
   >
     Get Stats
   </button>

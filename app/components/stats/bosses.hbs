@@ -7,20 +7,32 @@
     <div class="flex flex-col mb-8 gap-2">
       {{#if @bosses.next_boss}}
         <div class="flex flex-row">
-          <p data-test-next-boss class="text-2xl md:text-3xl text-secondary-dark">Next Boss:
+          <p
+            data-test-next-boss
+            class="text-2xl md:text-3xl text-secondary-dark"
+          >Next Boss:
             <span
               class="text-2xl md:text-3xl text-accent-dark"
             >{{@bosses.next_boss}}</span></p>
-
         </div>
-      {{/if}}
-      <div class="flex flex-row">
-        <p data-test-recent-boss class="text-2xl md:text-3xl text-secondary-dark">Recent
-          Boss:
+        <div class="flex flex-row">
+          <p
+            data-test-recent-boss
+            class="text-2xl md:text-3xl text-secondary-dark"
+          >Recent Boss:
+            <span
+              class="text-2xl md:text-3xl text-accent-dark"
+            >{{@bosses.recent_boss}}</span></p>
+        </div>
+      {{else}}
+        <p
+          data-test-recent-boss
+          class="text-2xl md:text-3xl text-secondary-dark"
+        >Defeated final boss:
           <span
             class="text-2xl md:text-3xl text-accent-dark"
           >{{@bosses.recent_boss}}</span></p>
-      </div>
+      {{/if}}
     </div>
   </div>
 {{/if}}

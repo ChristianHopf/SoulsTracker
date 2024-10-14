@@ -1,11 +1,11 @@
 <div class="relative text-right w-36">
   <button
     type="button"
-    class="text-primary-dark text-xl"
+    class="text-primary-dark text-xl hover:text-accent-dark"
     {{on "click" this.toggleSortDropdown}}
   >Sort</button>
   <div
-    class="absolute bg-primary-dark text-left w-full flex flex-col rounded-md px-2 py-1
+    class="absolute bg-accent-dark text-header-dark text-left w-full flex flex-col rounded-md px-2 py-1
       {{if this.hidden 'hidden'}}"
     role="menu"
   >

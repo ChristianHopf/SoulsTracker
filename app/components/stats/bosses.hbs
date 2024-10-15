@@ -3,36 +3,60 @@
     data-test-bosses
     class="flex flex-col bg-header-dark rounded-md drop-shadow-md px-4 py-2 gap-2 mx-3 md:mx-0"
   >
-    <h1 class="text-4xl text-primary-dark">Bosses</h1>
-    <div class="flex flex-col mb-8 gap-2">
-      {{#if @bosses.next_boss}}
-        <div class="flex flex-row">
-          <p
-            data-test-next-boss
-            class="text-2xl md:text-3xl text-secondary-dark"
-          >Next Boss:
-            <span
-              class="text-2xl md:text-3xl text-accent-dark"
-            >{{@bosses.next_boss}}</span></p>
-        </div>
-        <div class="flex flex-row">
-          <p
-            data-test-recent-boss
-            class="text-2xl md:text-3xl text-secondary-dark"
-          >Recent Boss:
-            <span
-              class="text-2xl md:text-3xl text-accent-dark"
-            >{{@bosses.recent_boss}}</span></p>
-        </div>
-      {{else}}
+    {{#if @bosses.next_boss}}
+      <h1 class="text-4xl text-primary-dark">Bosses</h1>
+      <div class="flex flex-col mb-8 gap-2">
+        <p
+          data-test-next-boss
+          class="text-2xl md:text-3xl text-secondary-dark"
+        >Next Boss:
+          <span
+            class="text-2xl md:text-3xl text-accent-dark"
+          >{{@bosses.next_boss}}</span></p>
         <p
           data-test-recent-boss
           class="text-2xl md:text-3xl text-secondary-dark"
-        >Defeated final boss:
+        >Recent Boss:
           <span
             class="text-2xl md:text-3xl text-accent-dark"
           >{{@bosses.recent_boss}}</span></p>
-      {{/if}}
-    </div>
+        <span>
+          <button
+            type="button"
+            {{on "click" this.toggleShowPrevBosses}}
+            class="text-2xl md:text-3xl text-secondary-dark"
+          >Previous bosses</button>
+        </span>
+        <div class="{{if this.hidden 'hidden'}}">
+          {{#each @bosses.prev_bosses as |prev|}}
+            <p class="text-2xl md:text-3xl text-accent-dark">{{prev}}</p>
+          {{/each}}
+        </div>
+
+      </div>
+    {{else}}
+      <h1 class="text-4xl text-primary-dark">Bosses (complete)</h1>
+      <div class="flex flex-col mb-8 gap-2">
+        <p
+          data-test-recent-boss
+          class="text-2xl md:text-3xl text-secondary-dark"
+        >Recent Boss:
+          <span
+            class="text-2xl md:text-3xl text-accent-dark"
+          >{{@bosses.recent_boss}}</span></p>
+        <span>
+          <button
+            type="button"
+            {{on "click" this.toggleShowPrevBosses}}
+            class="text-2xl md:text-3xl text-secondary-dark"
+          >Previous bosses</button>
+        </span>
+        <div class="{{if this.hidden 'hidden'}}">
+          {{#each @bosses.prev_bosses as |prev|}}
+            <p class="text-2xl md:text-3xl text-accent-dark">{{prev}}</p>
+          {{/each}}
+        </div>
+      </div>
+    {{/if}}
   </div>
 {{/if}}

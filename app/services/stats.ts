@@ -68,6 +68,7 @@ export default class StatsService extends Service {
         return null;
       }
       const responseJson = await response.json();
+      console.log(responseJson);
       this.playtime = responseJson.data;
       return responseJson.data;
     } catch (err) {
@@ -86,7 +87,8 @@ export default class StatsService extends Service {
         return null;
       }
       const responseJson = await response.json();
-      this.bosses = responseJson.response;
+      console.log(responseJson);
+      this.bosses = responseJson.data;
       return responseJson.response;
     } catch (err) {
       console.error('Failed to fetch bosses', err);

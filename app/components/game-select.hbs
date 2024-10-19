@@ -18,13 +18,24 @@
     </select>
   </label>
   <TipGames />
-  <button
-    type="button"
-    disabled
-    class="bg-secondary-dark text-header-dark border border-header-dark rounded-md px-2 md:px-4 py-1 md:py-2"
-  >
-    Get Stats
-  </button>
+  {{#if this.selectedGame}}
+    <button
+      type="button"
+      {{on "click" this.handleGetGameStats}}
+      class="bg-header-dark text-primary-dark border border-header-dark hover:text-accent-dark hover:border-accent-dark transition-colors duration-200 rounded-md px-2 md:px-4 py-1 md:py-2"
+    >
+      Get Stats
+    </button>
+  {{else}}
+    <button
+      type="button"
+      disabled
+      {{on "click" this.handleGetGameStats}}
+      class="bg-secondary-dark text-header-dark border border-header-dark rounded-md px-2 md:px-4 py-1 md:py-2"
+    >
+      Get Stats
+    </button>
+  {{/if}}
 </div>
 {{!-- {{else if this.user.userInfo}}
   <h1 class="text-5xl text-primary-dark">This user does not own any of the
